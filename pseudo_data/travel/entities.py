@@ -46,7 +46,6 @@ def _generate_choice_probs(n: int) -> ArrayLike:
     """
     Generates descending probability based on N, so for n = 4 would be
      1. 0.5, 0.33, 0.25 but normalized would be
-
      [0.48, 0.24, 0.16, 0.12] which would total 1
     """
     vals = np.arange(1, n + 1)
