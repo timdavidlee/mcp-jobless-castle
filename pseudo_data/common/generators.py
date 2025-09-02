@@ -1,7 +1,7 @@
 import numpy as np
 from time import perf_counter
 from pseudo_data.common._base import WeightedEnumGenerator
-from pseudo_data.common.consumer_brands import COMPANIES, PROD
+from pseudo_data.common.consumer_brands import COMPANIES
 from pseudo_data.common.demographics import AgeRange, IncomeRange
 from pseudo_data.common.country import COUNTRIES_AND_GDP
 from pseudo_data.common.people_names import FIRST_NAMES, LAST_NAMES
@@ -46,6 +46,7 @@ class NameGenerator:
             for fn, ln in zip(
                 self.state.choice(self._first_names, size=n),
                 self.state.choice(self._last_names, size=n),
+                strict=True,
             )
         ]
 
@@ -55,5 +56,6 @@ class NameGenerator:
             for fn, ln in zip(
                 self.state.choice(self._first_names, size=n),
                 self.state.choice(self._last_names, size=n),
+                strict=True,
             )
         ]
