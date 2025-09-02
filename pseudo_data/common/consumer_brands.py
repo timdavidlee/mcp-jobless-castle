@@ -1,6 +1,7 @@
 from enum import StrEnum
 from pydantic import Field
 from pydantic.dataclasses import dataclass
+from caseconverter import snakecase
 
 """
 Based on data
@@ -28,6 +29,15 @@ class CpgCompany:
     category: CompanyCategory
     alias: str
     products: list[str] = Field(default_factory=list)
+
+
+@dataclass
+class Product:
+    name: str
+    company: CpgCompany
+    category: CompanyCategory
+    alias: str
+    weight: int
 
 
 COMPANIES = [

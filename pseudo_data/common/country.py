@@ -1,34 +1,76 @@
-from enum import StrEnum
+from enum import Enum
+from pydantic.dataclasses import dataclass
 
 
-class Country(StrEnum):
-    INDIA = "India"
-    CHINA = "China"
-    UNITED_STATES = "United States"
-    INDONESIA = "Indonesia"
-    PAKISTAN = "Pakistan"
-    NIGERIA = "Nigeria"
-    BRAZIL = "Brazil"
-    BANGALDESH = "Bangladesh"
-    RUSSIA = "Russia"
-    MEXICO = "Mexico"
-    JAPAN = "Japan"
-    PHILIPPINES = "Philippines"
-    ETHIOPIA = "Ethiopia"
-    CONGO = "Democratic Republic of the Congo"
-    EGYPT = "Egypt"
-    VIETNAM = "Vietnam"
-    IRAN = "Iran"
-    TURKEY = "Turkey"
-    GERMANY = "Germany"
-    FRANCE = "France"
-    UNITED_KINGDOM = "United Kingdom"
-    TANZANIA = "Tanzania"
-    THAILAND = "Thailand"
-    SOUTH_AFRICA = "South Africa"
-    ITALY = "Italy"
-    COLOMBIA = "Colombia"
-    KENYA = "Kenya"
-    MYANMAR = "Myanmar"
-    SOUTH_KOREA = "South Korea"
-    SUDAN = "Sudan"
+@dataclass
+class CountryGDP:
+    alias: str
+    value: str
+    gdp: int
+
+
+COUNTRIES_AND_GDP = (
+    CountryGDP(alias="WORLD", value="World", gdp=113795678),
+    CountryGDP(alias="UNITED_STATES", value="United States", gdp=30507217),
+    CountryGDP(alias="CHINA", value="China", gdp=19231705),
+    CountryGDP(alias="GERMANY", value="Germany", gdp=4744804),
+    CountryGDP(alias="INDIA", value="India", gdp=4187017),
+    CountryGDP(alias="JAPAN", value="Japan", gdp=4186431),
+    CountryGDP(alias="UNITED_KINGDOM", value="United Kingdom", gdp=3839180),
+    CountryGDP(alias="FRANCE", value="France", gdp=3211292),
+    CountryGDP(alias="ITALY", value="Italy", gdp=2422855),
+    CountryGDP(alias="CANADA", value="Canada", gdp=2225341),
+    CountryGDP(alias="BRAZIL", value="Brazil", gdp=2125958),
+    CountryGDP(alias="RUSSIA", value="Russia", gdp=2076396),
+    CountryGDP(alias="SPAIN", value="Spain", gdp=1799511),
+    CountryGDP(alias="SOUTH_KOREA", value="South Korea", gdp=1790322),
+    CountryGDP(alias="AUSTRALIA", value="Australia", gdp=1771681),
+    CountryGDP(alias="MEXICO", value="Mexico", gdp=1692640),
+    CountryGDP(alias="TURKEY", value="Turkey", gdp=1437406),
+    CountryGDP(alias="INDONESIA", value="Indonesia", gdp=1429743),
+    CountryGDP(alias="NETHERLANDS", value="Netherlands", gdp=1272011),
+    CountryGDP(alias="SAUDI_ARABIA", value="Saudi Arabia", gdp=1083749),
+    CountryGDP(alias="POLAND", value="Poland", gdp=979960),
+    CountryGDP(alias="SWITZERLAND", value="Switzerland", gdp=947125),
+    CountryGDP(alias="TAIWAN", value="Taiwan", gdp=804889),
+    CountryGDP(alias="BELGIUM", value="Belgium", gdp=684864),
+    CountryGDP(alias="ARGENTINA", value="Argentina", gdp=683533),
+    CountryGDP(alias="SWEDEN", value="Sweden", gdp=620297),
+    CountryGDP(alias="IRELAND", value="Ireland", gdp=598840),
+    CountryGDP(alias="ISRAEL", value="Israel", gdp=583361),
+    CountryGDP(alias="SINGAPORE", value="Singapore", gdp=564774),
+    CountryGDP(alias="UNITED_ARAB_EMIRATES", value="United Arab Emirates", gdp=548598),
+    CountryGDP(alias="THAILAND", value="Thailand", gdp=546224),
+    CountryGDP(alias="AUSTRIA", value="Austria", gdp=534301),
+    CountryGDP(alias="NORWAY", value="Norway", gdp=504276),
+    CountryGDP(alias="PHILIPPINES", value="Philippines", gdp=497495),
+    CountryGDP(alias="VIETNAM", value="Vietnam", gdp=490970),
+    CountryGDP(alias="BANGLADESH", value="Bangladesh", gdp=467218),
+    CountryGDP(alias="DENMARK", value="Denmark", gdp=449940),
+    CountryGDP(alias="MALAYSIA", value="Malaysia", gdp=444984),
+    CountryGDP(alias="COLOMBIA", value="Colombia", gdp=427766),
+    CountryGDP(alias="HONG_KONG", value="Hong Kong", gdp=423999),
+    CountryGDP(alias="SOUTH_AFRICA", value="South Africa", gdp=410338),
+    CountryGDP(alias="ROMANIA", value="Romania", gdp=403395),
+    CountryGDP(alias="PAKISTAN", value="Pakistan", gdp=373072),
+    CountryGDP(alias="CZECH_REPUBLIC", value="Czech Republic", gdp=360244),
+    CountryGDP(alias="EGYPT", value="Egypt", gdp=347342),
+    CountryGDP(alias="CHILE", value="Chile", gdp=343823),
+    CountryGDP(alias="IRAN", value="Iran", gdp=341013),
+    CountryGDP(alias="PORTUGAL", value="Portugal", gdp=321440),
+    CountryGDP(alias="FINLAND", value="Finland", gdp=303945),
+    CountryGDP(alias="PERU", value="Peru", gdp=303293),
+    CountryGDP(alias="KAZAKHSTAN", value="Kazakhstan", gdp=300538),
+    CountryGDP(alias="ALGERIA", value="Algeria", gdp=268885),
+    CountryGDP(alias="GREECE", value="Greece", gdp=267348),
+    CountryGDP(alias="IRAQ", value="Iraq", gdp=258020),
+    CountryGDP(alias="NEW_ZEALAND", value="New Zealand", gdp=248666),
+    CountryGDP(alias="HUNGARY", value="Hungary", gdp=237070),
+    CountryGDP(alias="QATAR", value="Qatar", gdp=222776),
+    CountryGDP(alias="UKRAINE", value="Ukraine", gdp=205742),
+    CountryGDP(alias="CUBA", value="Cuba", gdp=201986),
+    CountryGDP(alias="NIGERIA", value="Nigeria", gdp=188271),
+    CountryGDP(alias="MOROCCO", value="Morocco", gdp=165835),
+    CountryGDP(alias="KUWAIT", value="Kuwait", gdp=153101),
+    CountryGDP(alias="SLOVAKIA", value="Slovakia", gdp=147031),
+)
