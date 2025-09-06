@@ -1,18 +1,18 @@
-from pydantic import BaseModel, Field
-
 import datetime
-from uuid import uuid4
 from datetime import timedelta
-from pseudo_data.travel.entities import (
-    Country,
-    LodgingClass,
-    HotelCompany,
-    generate_countries,
-    generate_hotel,
-    generate_lodging,
-    generate_start_dates,
-    generate_durations,
-)
+from uuid import uuid4
+
+from pydantic import BaseModel
+from pydantic import Field
+
+from pseudo_data.travel.entities import Country
+from pseudo_data.travel.entities import HotelCompany
+from pseudo_data.travel.entities import LodgingClass
+from pseudo_data.travel.entities import generate_countries
+from pseudo_data.travel.entities import generate_durations
+from pseudo_data.travel.entities import generate_hotel
+from pseudo_data.travel.entities import generate_lodging
+from pseudo_data.travel.entities import generate_start_dates
 
 
 class VacationOpening(BaseModel):

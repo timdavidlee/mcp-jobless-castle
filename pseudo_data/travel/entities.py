@@ -1,7 +1,9 @@
+from enum import Enum
+from enum import StrEnum
+
 import numpy as np
-from numpy.typing import ArrayLike
-from enum import Enum, StrEnum
 import pandas as pd
+from numpy.typing import ArrayLike
 
 from pseudo_data.common.country import Country
 

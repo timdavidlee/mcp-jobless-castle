@@ -1,7 +1,8 @@
 from enum import StrEnum
+
+from caseconverter import snakecase
 from pydantic import Field
 from pydantic.dataclasses import dataclass
-from caseconverter import snakecase
 
 """
 Based on data

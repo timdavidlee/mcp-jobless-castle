@@ -1,11 +1,14 @@
-import numpy as np
 from time import perf_counter
+
+import numpy as np
+
 from pseudo_data.common._base import WeightedEnumGenerator
 from pseudo_data.common.consumer_brands import COMPANIES
-from pseudo_data.common.demographics import AgeRange, IncomeRange
 from pseudo_data.common.country import COUNTRIES_AND_GDP
-from pseudo_data.common.people_names import FIRST_NAMES, LAST_NAMES
-
+from pseudo_data.common.demographics import AgeRange
+from pseudo_data.common.demographics import IncomeRange
+from pseudo_data.common.people_names import FIRST_NAMES
+from pseudo_data.common.people_names import LAST_NAMES
 
 CompanyGenerator = WeightedEnumGenerator.from_tuples(
     "CpgCompany",

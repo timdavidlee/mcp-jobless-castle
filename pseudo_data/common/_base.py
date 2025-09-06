@@ -1,6 +1,7 @@
-import numpy as np
 from enum import StrEnum
 from typing import Type
+
+import numpy as np
 from pydantic import BaseModel
 
 
@@ -22,6 +23,7 @@ class WeightedEnumGenerator(BaseModel):
     weights: list[float]
 
     def __init__(self, enum_name: str, ordered_enum: StrEnum, weights: list[float]):
+        assert np.isclose(sum(weights), 1.0), "weights don't add up to 1.0"
         super().__init__(
             enum_name=enum_name,
             ordered_enum=ordered_enum,
