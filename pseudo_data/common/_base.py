@@ -23,7 +23,8 @@ class WeightedEnumGenerator(BaseModel):
     weights: list[float]
 
     def __init__(self, enum_name: str, ordered_enum: StrEnum, weights: list[float]):
-        assert np.isclose(sum(weights), 1.0), "weights don't add up to 1.0"
+        total_wt = sum(weights)
+        assert np.isclose(total_wt, 1.0, rtol=1e-3), f"weights don't add up to 1.0 -> {total_wt}"
         super().__init__(
             enum_name=enum_name,
             ordered_enum=ordered_enum,
@@ -37,7 +38,7 @@ class WeightedEnumGenerator(BaseModel):
         values = [row[0] for row in list_of_tuples]
         str_enum = StrEnum(enum_name, values)
 
-        weights = np.array([row[1] for row in list_of_tuples])
+        weights = np.array([row[1] for row in list_of_tuples], dtype=np.float32)
         total_weight = weights.sum()
         normalized = np.round(weights / total_weight, 5)
         return cls(enum_name=enum_name, ordered_enum=str_enum, weights=normalized)

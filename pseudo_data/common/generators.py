@@ -26,7 +26,7 @@ AgeGenerator = WeightedEnumGenerator(
 IncomeGenerator = WeightedEnumGenerator(
     enum_name="IncomeRange",
     ordered_enum=IncomeRange,
-    weights=[1.0 / len(IncomeRange) for _ in range(1, len(IncomeRange))],
+    weights=[1.0 / len(IncomeRange) for _ in range(len(IncomeRange))],
 )
 
 
