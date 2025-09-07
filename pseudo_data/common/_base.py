@@ -5,6 +5,12 @@ import numpy as np
 from pydantic import BaseModel
 
 
+def even_weight_generator(input_list: list, n: int, replace: bool = False):
+    inds = list(np.arange(len(input_list)))
+    selections = np.random.choice(inds, size=n, replace=replace)
+    return [input_list[j] for j in selections]
+
+
 class WeightedEnumGenerator(BaseModel):
     """
     Examples
@@ -24,7 +30,9 @@ class WeightedEnumGenerator(BaseModel):
 
     def __init__(self, enum_name: str, ordered_enum: StrEnum, weights: list[float]):
         total_wt = sum(weights)
-        assert np.isclose(total_wt, 1.0, rtol=1e-3), f"weights don't add up to 1.0 -> {total_wt}"
+        assert np.isclose(total_wt, 1.0, rtol=1e-3), (
+            f"weights don't add up to 1.0 -> {total_wt}"
+        )
         super().__init__(
             enum_name=enum_name,
             ordered_enum=ordered_enum,
@@ -71,6 +79,6 @@ class WeightedEnumGenerator(BaseModel):
         else:
             random_state = np.random.RandomState()
 
-        return random_state.choices(
+        return random_state.choice(
             [row.value for row in list(self.ordered_enum)], size=n, replace=replace
         )
